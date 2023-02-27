@@ -60,14 +60,14 @@ async def help(event):
     chat_id = event.chat_id
     if not event.is_private:
         return await event.respond("ᴅᴇᴀʀ sᴛᴀʀᴛ ᴍᴇ ɪɴ ᴘᴍ ᴛᴏ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴғ 🥺")
-    helptext = "✪ ʜᴇʟᴘ ᴍᴇɴᴜ ᴏғ ᴀʟᴇxᴀ ᴍᴇɴᴛɪᴏɴ\n\n✪ ᴄᴏᴍᴍᴀɴᴅ: /mentionall\n✪ ᴄᴏᴍᴍᴀɴᴅ: /cancel ᴛᴏ ᴄᴀɴᴄᴇʟ ɢᴏɪɴɢ ᴏɴ ᴘʀᴏᴄᴇss.\n✪ ᴄᴏᴍᴍᴀɴᴅ /admin ᴛᴏ ᴍᴇɴᴛɪᴏɴ ᴀʟʟ ᴀᴅᴍɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ\n✪ Yᴏᴜ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ᴡɪᴛʜ ᴛᴇxᴛ ᴡʜᴀᴛ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴍᴇɴᴛɪᴏɴ ᴏᴛʜᴇʀs.\n✪ `Example: /mentionall Good Morning!`\n✪ Yᴏᴜ ᴄᴀɴ ʏᴏᴜ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ᴀs ᴀ ʀᴇᴘʟʏ ᴛᴏ ᴀɴʏ ᴍᴇssᴀɢᴇ. Bᴏᴛ ᴡɪʟʟ ᴛᴀɢ ᴜsᴇʀs ᴛᴏ ᴛʜᴀᴛ ʀᴇᴘʟɪᴇᴅ ᴍᴇsssᴀɢᴇ."
+    helptext = "✪ Help Menu Bot Tag\n\n✪ Command /all|/tagall|@tagall|@all|.all\n✪ Command /cancel Stop Tag All.\n✪ Command /admin Tag Admin DI Group\n✪ Kamu bisa tag all dengan kalimat.\n✪ `Contoh: /all Good Morning!`\n✪ Kamu juga bisa replay chat untuk tag all."
     await event.reply(
         helptext,
         link_preview=False,
         buttons=(
             [
-                Button.url("☀︎︎ ʜᴇᴀʀᴛ", "https://t.me/AboutWiki"),
-                Button.url("ʏᴏᴜᴛᴜʙᴇ ☀︎︎", "https://t.me/WikiTapiBot"),
+                Button.url("Owner", "https://t.me/AboutWiki"),
+                Button.url("Bot Music", "https://t.me/WikiTapiBot"),
             ]
         ),
     )
@@ -78,14 +78,14 @@ async def help(event):
     chat_id = event.chat_id
     if not event.is_private:
         return await event.respond("ᴅᴇᴀʀ sᴛᴀʀᴛ ᴍᴇ ɪɴ ᴘᴍ ᴛᴏ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴғ 🥺")
-    helptext = "✪ ᴏᴡɴᴇʀ ᴍᴇɴᴜ ᴏғ ᴀʟᴇxᴀ ᴍᴇɴᴛɪᴏɴ\n\n✪ ᴍʏ ᴏᴡɴᴇʀ ɪs [ᴀsᴀᴅ ᴀʟɪ](https://t.me/Dr_Asad_Ali)\n✪ ᴏғғɪᴄɪᴀʟ ᴍᴇᴍʙᴇʀ ᴏғ ʀᴏᴄᴋs\n✪ ʏᴏᴜᴛᴜʙᴇ [ᴄʜᴀɴɴᴇʟ](https://www.youtube.com/c/JankariKiDuniya)\n✪ ғᴜᴛᴜʀᴇ ᴀɴᴇsᴛʜᴇᴛɪᴄ."
+    helptext = "✪ Owner Menu\n\n✪ My Owner [Wiki W](https://t.me/saya_wiki)\n✪ Channel [About Wiki](https://t.me/AboutWiki."
     await event.reply(
         helptext,
         link_preview=False,
         buttons=(
             [
-                Button.url("☀︎︎ ʜᴇᴀʀᴛ", "https://t.me/AboutWiki"),
-                Button.url("ʏᴏᴜᴛᴜʙᴇ ☀︎︎", "https://t.me/WikiTapiBot"),
+                Button.url("Owner", "https://t.me/AboutWiki"),
+                Button.url("Bot Music", "https://t.me/WikiTapiBot"),
             ]
         ),
     )
@@ -122,8 +122,6 @@ async def mentionall(event):
         msg = await event.get_reply_message()
         if msg == None:
             return await event.respond("__Saya tidak bisa menyebutkan anggota untuk pesan lama! (pesan yang dikirim sebelum saya ditambahkan ke grup)__")
-        elif event.pattern_match.group(1) and event.reply_to_msg_id:
-            return await event.respond("Give me can an Argument. Ex: `/tag Hey, Where are you`")
         else:
             return await event.respond("__Balas pesan atau beri saya beberapa teks untuk menyebutkan orang lain!__")
 
