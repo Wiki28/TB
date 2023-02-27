@@ -112,22 +112,18 @@ async def mentionall(event):
     if not is_admin:
         return await event.respond("__Hanya admin yang bisa tag all!__")
 
-    if event.pattern_match.group(1) and event.is_reply:
-        return await event.respond("__Beri aku satu kalimat!__")
-    elif event.pattern_match.group(1):
-        mode = "text_on_cmd"
-        msg = event.pattern_match.group(1)
-    elif event.is_reply:
-        mode = "text_on_reply"
-        msg = await event.get_reply_message()
-        if msg == None:
-            return await event.respond(
-                "__Saya tidak bisa menyebutkan anggota untuk pesan lama! (pesan yang dikirim sebelum saya ditambahkan ke grup)__"
-            )
-    else:
-        return await event.respond(
-            "__Balas pesan atau beri saya beberapa teks untuk menyebutkan orang lain!__"
-        )
+    if event.pattern_match.group(1):
+    mode = "text_on_cmd"
+    msg = event.pattern_match.group(1)
+  elif event.reply_to_msg_id:
+    mode = "text_on_reply"
+    msg = event.reply_to_msg_id
+    if msg == None:
+        return await event.respond("I can't Mention Members for Old Post!")
+  elif event.pattern_match.group(1) and event.reply_to_msg_id:
+    return await event.respond("Give me can an Argument. Ex: `/tag Hey, Where are you`")
+  else:
+    return await event.respond("Reply to Message or Give Some Text To Mention!")
 
     spam_chats.append(chat_id)
     usrnum = 0
